@@ -13,23 +13,6 @@
 
 </div>
 
-<table>
-  <tr>
-    <td width="58%" align="center">
-      <img src="./assets/readme-hero.webp" alt="穿戴、家居、家电与音频等多品类商品数据进入统一分析并生成差异化营销内容的概念图" width="560">
-    </td>
-    <td width="42%" valign="top">
-      <h3>🛒 一套方法，按品类配置</h3>
-      <p>⌚ 智能穿戴</p>
-      <p>🏠 智能家居</p>
-      <p>🎧 消费电子</p>
-      <p>🧴 美妆个护</p>
-      <p>🏕️ 户外与生活方式</p>
-      <sub>跨品类营销概念图；图中图标和图表不代表真实商品规格或经营数据。</sub>
-    </td>
-  </tr>
-</table>
-
 > [!NOTE]
 > 本仓库是一套**跨品类电商数据营销工作流、Prompt 模式库与案例报告**，不是只服务智能手环的营销工具，也不是可直接运行的插件。智能手环仅用于展示完整实例化过程。
 
@@ -92,18 +75,11 @@ required_output: [数据观察, 待验证假设, 卖点层级, 元素溯源表]
 
 ### 跨品类处理链
 
-```mermaid
-flowchart LR
-    A["category_config"] --> B["公开文本采集与来源保留"]
-    B --> C["清洗、试标与动态维度"]
-    C --> D["描述、情感、主题、对比、趋势"]
-    D --> E{"证据质检"}
-    E -->|不足| F["标记偏差 / 降级为风险信号"]
-    E -->|通过| G["数据观察 + 待验证假设"]
-    G --> H["用户、卖点与渠道策略"]
-    H --> I["文案 / 概念视觉"]
-    I --> J["数据、规格、合规、版权复核"]
-```
+<p align="center">
+  <img src="./assets/readme-architecture.svg" alt="多品类商品通过品类配置、多源文本分析、证据质检、营销策略和物料复核形成输出的流程图" width="100%">
+</p>
+
+<p align="center"><sub>可编辑版本：<a href="./assets/readme-architecture.drawio">readme-architecture.drawio</a></sub></p>
 
 ## 品类配置接口
 
@@ -148,7 +124,7 @@ flowchart LR
 | 主题网络案例 | Counter、词共现、NetworkX、贪心模块度社区 |
 | Agent / Prompt | 约束式代码生成、强制引用解读、受控文案、证据先行视觉 |
 | 视觉资产 | 数据图表、AI 概念海报、元素溯源表 |
-| 文档 | Markdown、YAML、JSON、Mermaid、GitHub Alerts |
+| 文档 | Markdown、YAML、JSON、draw.io、SVG、GitHub Alerts |
 
 > 案例分析数字来自未随仓库发布的 `problem2_analysis.py` 运行结果。本仓库保留方法、参数与报告，不提供可直接执行的分析脚本。
 
@@ -184,6 +160,8 @@ smart-device-ecommerce-marketing/
 ├── product-design.md            # 用户、卖点与营销模块
 ├── data-analysis.md             # 通用分析模板与手环案例
 └── assets/
+    ├── readme-architecture.drawio  # 可编辑跨品类流程图
+    ├── readme-architecture.svg     # README 矢量展示图
     ├── feature-radar.png        # 案例功能维度雷达图
     └── marketing-poster-gpt-image-2.png  # AI 概念海报
 ```

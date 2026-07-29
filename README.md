@@ -1,3 +1,258 @@
+<div align="right"><a href="#english">English</a> | <a href="#简体中文">简体中文</a></div>
+
+<a id="english"></a>
+
+# Smart Device and E-commerce Product Data Marketing Workflow
+
+<div align="center">
+
+<strong>Multi-source product text → Auditable data observations → Marketing hypotheses to validate → Traceable concept assets</strong>
+
+![Scope](https://img.shields.io/badge/Scope-Cross--Category-EA580C?style=for-the-badge)
+![Method](https://img.shields.io/badge/Method-Data%20%2B%20Spec%20Traceability-0369A1?style=for-the-badge)
+![Case](https://img.shields.io/badge/Case-134%20Public%20Texts-7C3AED?style=for-the-badge)
+![Review](https://img.shields.io/badge/Release-Human%20Review-166534?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-Python%203-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+[Cross-category Workflow](./workflows.md) · [Capability Contracts](./skills.md) · [Prompt Patterns](./prompt-engineering.md) · [Marketing Design](./product-design.md) · [Analysis Templates and Case](./data-analysis.md)
+
+</div>
+
+> [!NOTE]
+> This repository contains a **cross-category e-commerce data marketing workflow, prompt-pattern library, and case report**, plus a Python category-configuration validator. It is not a marketing tool exclusively for smart bands, nor a complete analytics plugin. The smart-band case demonstrates the full instantiation process.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Highlights](#highlights)
+- [Example](#example)
+- [Category Configuration Interface](#category-configuration-interface)
+- [Capabilities](#capabilities)
+- [AI and Human Responsibilities](#ai-and-human-responsibilities)
+- [Technology and Method Stack](#technology-and-method-stack)
+- [Installation and Deployment](#installation-and-deployment)
+- [Project Structure](#project-structure)
+- [Validated Case: Smart Bands](#validated-case-smart-bands)
+- [FAQ](#faq)
+- [Acceptance Criteria and Boundaries](#acceptance-criteria-and-boundaries)
+
+## Introduction
+
+Product marketing often becomes distorted at two points: the analysis stage treats mixed-source text as representative of the whole market, and the generation stage rewrites data observations as unverified specifications or efficacy claims. This project uses `category_config` to explicitly configure category dictionaries, analysis dimensions, authoritative specification sources, risk rules, and channel requirements, then requires every insight and asset element to map back to data or specification evidence.
+
+Applicable categories include, but are not limited to:
+
+`smart wearables` · `smart home` · `consumer electronics` · `home appliances` · `beauty and personal care` · `household goods` · `outdoor equipment` · `pet supplies`
+
+| Input | Output |
+|---|---|
+| Category configuration, public text, source labels, authoritative specifications, risk rules, and target channel | Descriptive statistics, topic networks, user/selling-point hypotheses, marketing architecture, element traceability table, and copy or concept visuals |
+
+## Highlights
+
+- 🧰 **Category configuration**: input/output contracts are reusable; a case-specific dictionary and labels are not.
+- 🔗 **Auditable sources**: every text item retains source type, URL, time, and version fields.
+- 📐 **Dynamic dimension labeling**: pilot-label and calibrate a new category before freezing dimensions and dictionary versions.
+- 🧠 **Separate observations from hypotheses**: statistical results do not directly equal purchase motivation or communication effectiveness.
+- 🧾 **Dual traceability for data and specifications**: data determines information priority; authoritative specifications determine concrete parameters.
+- 🧯 **Prioritize negative long-tail checks**: low-sample data finds risks; it does not rank products.
+- 🎨 **Auditable concept assets**: record functional elements, visible text, risk statements, and pending checks item by item.
+
+## Example
+
+### Generic Category Configuration
+
+```yaml
+category: Robot vacuum
+business_question: Which issues belong above the fold on the product page and in negative-risk checks?
+sources: [public reviews, product Q&A, evaluations, product pages]
+analysis_dimensions: [cleaning, obstacle avoidance, noise, maintenance, connectivity, after-sales]
+spec_source: [official specification sheet, manual, testing or authorized material]
+risk_rules: [performance conditions, certification wording, no fabricated accessories or features]
+target_channel: E-commerce product page
+required_output: [data observations, hypotheses to validate, selling-point hierarchy, element traceability table]
+```
+
+### Cross-category Processing Pipeline
+
+<p align="center">
+  <img src="./assets/readme-architecture.svg" alt="Workflow in which multiple product categories pass through category configuration, multi-source text analysis, evidence quality control, marketing strategy, and asset review" width="100%">
+</p>
+
+<p align="center"><sub>Editable source: <a href="./assets/readme-architecture.drawio">readme-architecture.drawio</a></sub></p>
+
+## Category Configuration Interface
+
+| Configuration | Purpose | Smart-band Case | Other Category Examples |
+|---|---|---|---|
+| `category_terms` | Names, synonyms, and models | band, watch, health-monitoring device | robot vacuum, floor washer; serum, face cream |
+| `analysis_dimensions` | Statistical attribute dimensions | 14 dimensions including health, safety, wear, and battery life | cleaning, obstacle avoidance, noise; feel, ingredients, packaging |
+| `spec_source` | Factual source for concrete parameters | Official product material and test evidence | specification sheets, manuals, quality reports, authorized assets |
+| `risk_rules` | Prohibited terms, qualifications, and disclosure requirements | Medical/health wording and device qualifications | efficacy claims, child safety, environmental certification |
+| `target_channel` | Content structure and format | Product pages, posters, short videos | Search ads, livestream scripts, social posts |
+
+Dimensions, thresholds, and risk terms from the case must not be copied directly to another category.
+
+## Capabilities
+
+| Capability | Deliverable | Document |
+|---|---|---|
+| Multi-source text collection adapters | Source schema, failure log, and authorization boundaries | [skills.md](./skills.md) |
+| Dynamic text analysis | Category dictionary, dimension versions, sentiment and attribute statistics | [skills.md](./skills.md) |
+| Topics and issue long tail | Co-occurrence network, topic communities, and negative-source clusters | [data-analysis.md](./data-analysis.md) |
+| Mandatory citation-based interpretation | Data observations, denominator, counter-explanations, and hypotheses to validate | [prompt-engineering.md](./prompt-engineering.md) |
+| Marketing product design | User relationships, three-level selling points, and six-module marketing architecture | [product-design.md](./product-design.md) |
+| Traceable assets | Data basis, specification basis, risk items, and visible-text inventory | [skills.md](./skills.md) |
+
+## AI and Human Responsibilities
+
+| Stage | AI May Handle | Humans Must Own |
+|---|---|---|
+| Configuration | Extract candidate terms, attributes, and risk terms | Define category scope, definitions, specification sources, and reviewers |
+| Collection and analysis | Assist in generating collection, cleaning, statistical, and visualization code | Source authorization, sampling, definitions, and execution acceptance |
+| Insights | Offer candidate interpretations with numeric citations | Verify results and distinguish observations, hypotheses, and business judgment |
+| Marketing plan | Generate structured drafts and candidate copy | Selling-point priority, channel strategy, and risk limits |
+| Visual assets | Generate concepts and layout candidates | Specifications, qualifications, brand, copyright, and publication approval |
+
+## Technology and Method Stack
+
+| Layer | Tool or Method |
+|---|---|
+| Data contracts | YAML `category_config`, source schema, and version fields |
+| Text-processing case | jieba, custom dictionary, and two-layer stop-word list |
+| Sentiment case | SnowNLP; recalibrate with a human-labeled set for every new category |
+| Topic-network case | Counter, word co-occurrence, NetworkX, and greedy modularity communities |
+| Reference implementation | Python 3 standard library; category-configuration completeness, deduplication, evidence gates, and human-release-review markers |
+| Agent / Prompt | Constrained code generation, citation-required interpretation, controlled copy, and evidence-first visuals |
+| Visual assets | Data charts, AI concept poster, and element traceability table |
+| Documentation | Markdown, YAML, JSON, draw.io, SVG, and GitHub Alerts |
+
+> Case-analysis figures come from `problem2_analysis.py` runs that are not published with the repository. The repository retains methods, parameters, and reports, but does not provide a directly executable analysis script.
+
+## Installation and Deployment
+
+### Get the Workflow
+
+```bash
+git clone https://github.com/ChrysFu-FndVent/smart-device-ecommerce-marketing.git
+cd smart-device-ecommerce-marketing
+```
+
+The README and method documents require no dependencies. The configuration validator requires Python 3.9 or later and has no third-party dependencies:
+
+```bash
+python3 src/category_config.py
+python3 src/category_config.py --self-test
+```
+
+The script validates category configuration only. It does not collect data, analyze sentiment, build topic networks, or generate marketing content. To implement a full analysis for a new category, use the code-generation contract in [prompt-engineering.md](./prompt-engineering.md) and create an independent Python environment with tests and data-version management.
+
+### Deployment
+
+The validator is not a web service and needs no port or database. Invoke `validate_config` before a data-marketing pipeline starts to prevent tasks missing sources, analysis dimensions, authoritative specification sources, or risk rules from entering downstream stages:
+
+```python
+from src.category_config import validate_config
+```
+
+Collection, cleaning, sentiment analysis, topic networks, asset generation, and release review must be deployed as separate components. Each category needs its own versioned configuration and human validation set; case thresholds cannot be shared.
+
+### Migration to a New Category
+
+1. Complete and review `category_config` in [skills.md](./skills.md).
+2. Human-label a small pilot sample and revise dimensions, dictionaries, stop words, and risk rules.
+3. Follow [workflows.md](./workflows.md) to collect and clean data while retaining sources and failure records.
+4. Use [data-analysis.md](./data-analysis.md) to freeze parameters, denominators, and output versions.
+5. Use [prompt-engineering.md](./prompt-engineering.md) to separate data observations, counter-explanations, and hypotheses to validate.
+6. Use [product-design.md](./product-design.md) to build the selling-point hierarchy and element traceability table.
+7. Before publication, complete specification, qualification, advertising, copyright, privacy, and accessibility review.
+
+## Project Structure
+
+```text
+smart-device-ecommerce-marketing/
+├── README.md
+├── .gitignore                   # Python cache ignore rules
+├── workflows.md                 # Category gate and six-stage data-marketing workflow
+├── skills.md                    # Four capability contracts and category_config
+├── prompt-engineering.md        # Four verifiable prompt patterns
+├── product-design.md            # Users, selling points, and marketing modules
+├── data-analysis.md             # Generic analysis template and smart-band case
+├── src/
+│   └── category_config.py       # Python category-configuration validation reference
+└── assets/
+    ├── readme-architecture.drawio  # Editable cross-category workflow
+    ├── readme-architecture.svg     # README vector diagram
+    ├── feature-radar.png        # Case feature-dimension radar chart
+    └── marketing-poster-gpt-image-2.png  # AI concept poster
+```
+
+## Validated Case: Smart Bands
+
+| Item | Record | Boundary |
+|---|---:|---|
+| Sample | **134 texts / 7 source labels / 20 brands** | Mixed public text, not a random sample of e-commerce reviews |
+| Attributes | **14 dimensions**; health-monitoring mention rate **38.8%** | Mention rate does not equal purchase importance |
+| Topics | **4 topic communities** | Community names require source review and do not imply communication effectiveness |
+| Sentiment | Mean SnowNLP score **0.795** | Describes only the current positively skewed sample |
+| Visual | Initial traceability table for **9 poster elements** | Concrete specifications still require official verification |
+
+These figures demonstrate that the workflow can move one case through to auditable assets; they are not default baselines for other categories.
+
+## FAQ
+
+<details>
+<summary><strong>Is this project only for smart bands?</strong></summary>
+
+No. The band is a validation case. When migrating, retain the data schema, evidence quality control, and dual-traceability method, but rebuild the category dictionary, analysis dimensions, model thresholds, specification sources, and risk rules.
+</details>
+
+<details>
+<summary><strong>Why is the analysis script missing after cloning?</strong></summary>
+
+The public repository delivers methods, parameters, prompts, results, visual assets, and an independently written configuration validator; it does not publish the original case-analysis script. The validator cannot reproduce case figures. A new category still requires analysis code, pinned dependencies, and tests in an independent environment.
+</details>
+
+<details>
+<summary><strong>Can SnowNLP sentiment scores be reused across categories?</strong></summary>
+
+No. A general model may misclassify medical, health, beauty, food, or appliance terminology. Build a small human validation set and recalibrate dictionaries, thresholds, and error patterns.
+</details>
+
+<details>
+<summary><strong>Can the concept poster be published directly?</strong></summary>
+
+No. Verify all visible text, specifications, functions, qualifications, people, copyright, and required statements item by item. Remove anything without authoritative specification evidence or keep it as an internal placeholder.
+</details>
+
+<details>
+<summary><strong>Can brands with small samples be ranked?</strong></summary>
+
+No. Low-sample data is only for identifying possible risk themes. Show sample sizes and review source text; do not extrapolate overall brand reputation or causal relationships.
+</details>
+
+<details>
+<summary><strong>Will deploying the configuration validator generate marketing assets?</strong></summary>
+
+No. The validator only confirms that category configuration is complete and marks evidence gates and human release-review requirements. Text analysis, insight generation, specification checks, visual production, and publication approval must still be implemented and accepted separately.
+</details>
+
+## Acceptance Criteria and Boundaries
+
+- Every strategic conclusion cites statistical evidence or is explicitly labeled as a hypothesis to validate.
+- Numbers, models, materials, dimensions, performance, and efficacy map back to authoritative specification sources.
+- Humans review source authorization, privacy, copyright, advertising rules, and category-specific requirements.
+- Mixed-source samples do not represent the whole market, and time-based inference is not presented as strict temporal causality.
+- Every new category requires recalibration of sentiment models, dictionaries, dimensions, and thresholds.
+
+---
+
+<p align="right"><a href="#english">Back to English</a></p>
+
+---
+
+<a id="简体中文"></a>
+
 # 智能设备与电商产品数据营销工作流
 
 <div align="center">

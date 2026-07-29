@@ -8,13 +8,14 @@
 ![Method](https://img.shields.io/badge/Method-Data%20%2B%20Spec%20Traceability-0369A1?style=for-the-badge)
 ![Case](https://img.shields.io/badge/Case-134%20Public%20Texts-7C3AED?style=for-the-badge)
 ![Review](https://img.shields.io/badge/Release-Human%20Review-166534?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-Python%203-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 [跨品类流程](./workflows.md) · [能力契约](./skills.md) · [Prompt 模式](./prompt-engineering.md) · [营销设计](./product-design.md) · [分析模板与案例](./data-analysis.md)
 
 </div>
 
 > [!NOTE]
-> 本仓库是一套**跨品类电商数据营销工作流、Prompt 模式库与案例报告**，不是只服务智能手环的营销工具，也不是可直接运行的插件。智能手环仅用于展示完整实例化过程。
+> 本仓库是一套**跨品类电商数据营销工作流、Prompt 模式库与案例报告**，并提供 Python 品类配置校验器；它不是只服务智能手环的营销工具，也不是完整的分析插件。智能手环仅用于展示完整实例化过程。
 
 ## 简介
 
@@ -122,6 +123,7 @@ required_output: [数据观察, 待验证假设, 卖点层级, 元素溯源表]
 | 文本处理案例 | jieba、自定义词典、双层停用词 |
 | 情感案例 | SnowNLP（需用新品类人工集重新校准） |
 | 主题网络案例 | Counter、词共现、NetworkX、贪心模块度社区 |
+| 参考实现 | Python 3 标准库；品类配置完整性、去重、证据闸门与人工发布复核标记 |
 | Agent / Prompt | 约束式代码生成、强制引用解读、受控文案、证据先行视觉 |
 | 视觉资产 | 数据图表、AI 概念海报、元素溯源表 |
 | 文档 | Markdown、YAML、JSON、draw.io、SVG、GitHub Alerts |
@@ -137,7 +139,14 @@ git clone https://github.com/ChrysFu-FndVent/smart-device-ecommerce-marketing.gi
 cd smart-device-ecommerce-marketing
 ```
 
-README 和方法文档无需安装依赖。若要为新品类实现分析代码，应根据 [prompt-engineering.md](./prompt-engineering.md) 的代码生成契约建立独立 Python 环境、测试和数据版本管理。
+README 和方法文档无需安装依赖。配置校验器使用 Python 3.9 或更高版本，不依赖第三方包：
+
+```bash
+python3 src/category_config.py
+python3 src/category_config.py --self-test
+```
+
+该脚本只校验品类配置，不执行采集、情感分析、主题网络或营销内容生成。若要为新品类实现完整分析代码，应根据 [prompt-engineering.md](./prompt-engineering.md) 的代码生成契约建立独立 Python 环境、测试和数据版本管理。
 
 ### 新品类迁移步骤
 
@@ -154,11 +163,14 @@ README 和方法文档无需安装依赖。若要为新品类实现分析代码�
 ```text
 smart-device-ecommerce-marketing/
 ├── README.md
+├── .gitignore                   # Python 缓存忽略规则
 ├── workflows.md                 # 品类闸门与六段数据营销流程
 ├── skills.md                    # 四类能力契约与 category_config
 ├── prompt-engineering.md        # 四种可验证 Prompt 模式
 ├── product-design.md            # 用户、卖点与营销模块
 ├── data-analysis.md             # 通用分析模板与手环案例
+├── src/
+│   └── category_config.py       # Python 品类配置校验参考实现
 └── assets/
     ├── readme-architecture.drawio  # 可编辑跨品类流程图
     ├── readme-architecture.svg     # README 矢量展示图
@@ -189,7 +201,7 @@ smart-device-ecommerce-marketing/
 <details>
 <summary><strong>为什么克隆后找不到分析脚本？</strong></summary>
 
-公开仓库交付方法、参数、Prompt、结果和视觉资产，不发布原案例脚本。README 不提供虚构的运行命令；新品类实现应在独立环境中补齐代码、依赖锁定和测试。
+公开仓库交付方法、参数、Prompt、结果、视觉资产和独立编写的配置校验器，不发布原案例分析脚本。配置校验器不能复现案例数字；新品类的完整实现仍需在独立环境中补齐分析代码、依赖锁定和测试。
 </details>
 
 <details>

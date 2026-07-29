@@ -41,26 +41,6 @@
 
 ## 效果展示
 
-### 案例图表与概念物料
-
-<table>
-  <tr>
-    <td align="center" width="52%">
-      <img src="./assets/feature-radar.png" alt="智能手环案例十四项功能维度提及频次雷达图" width="520">
-    </td>
-    <td align="center" width="48%">
-      <img src="./assets/marketing-poster-gpt-image-2.png" alt="智能手环案例 AI 营销概念海报" width="310">
-    </td>
-  </tr>
-  <tr>
-    <td><strong>数据图表</strong>：展示案例语料中的功能维度提及频次，仅描述当前样本。</td>
-    <td><strong>概念海报</strong>：展示数据到视觉的工作流结果，不对应具体在售商品。</td>
-  </tr>
-</table>
-
-> [!WARNING]
-> 海报中的“14 天”、定位制式、防水等级、健康功能和其他规格文字均为**概念占位**，没有正式规格源时不得作为发布物料使用。
-
 ### 通用品类配置
 
 ```yaml
@@ -130,7 +110,7 @@ required_output: [数据观察, 待验证假设, 卖点层级, 元素溯源表]
 
 > 案例分析数字来自未随仓库发布的 `problem2_analysis.py` 运行结果。本仓库保留方法、参数与报告，不提供可直接执行的分析脚本。
 
-## 安装与使用
+## 安装与部署
 
 ### 获取工作流
 
@@ -147,6 +127,16 @@ python3 src/category_config.py --self-test
 ```
 
 该脚本只校验品类配置，不执行采集、情感分析、主题网络或营销内容生成。若要为新品类实现完整分析代码，应根据 [prompt-engineering.md](./prompt-engineering.md) 的代码生成契约建立独立 Python 环境、测试和数据版本管理。
+
+### 部署方式
+
+配置校验器不是 Web 服务，不需要端口或数据库。可在数据营销流水线开始前调用 `validate_config`，阻止缺少来源、分析维度、正式规格源或风险规则的任务进入后续阶段：
+
+```python
+from src.category_config import validate_config
+```
+
+采集、清洗、情感分析、主题网络、物料生成和发布审核需要由独立组件部署。不同品类应使用各自版本化配置和人工验证集，不能共用案例阈值。
 
 ### 新品类迁移步骤
 
@@ -220,6 +210,12 @@ smart-device-ecommerce-marketing/
 <summary><strong>低样本品牌能否进行排名？</strong></summary>
 
 不能。低样本只用于发现可能的风险主题，应展示样本量并回看原文，不应外推品牌总体口碑或因果关系。
+</details>
+
+<details>
+<summary><strong>部署配置校验器后能直接生成营销物料吗？</strong></summary>
+
+不能。校验器只确认品类配置是否完整，并标记证据闸门与人工发布复核要求。文本分析、洞察生成、规格核对、视觉制作和发布审批仍需独立实现并逐步验收。
 </details>
 
 ## 验收与边界

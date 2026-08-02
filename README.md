@@ -7,6 +7,8 @@
 <img alt="Python" src="https://img.shields.io/badge/Reference-Python%20standard%20library-3776AB?style=flat-square&logo=python&logoColor=white">
 <img alt="Workflow" src="https://img.shields.io/badge/Workflow-Data%20to%20marketing%20materials-0F766E?style=flat-square">
 <img alt="Review" src="https://img.shields.io/badge/Release-Human%20review%20required-F59E0B?style=flat-square">
+<p><a href="workflows.md">🧭 Workflow</a> · <a href="skills.md">🧩 Contracts</a> · <a href="prompt-engineering.md">💬 Prompts</a> · <a href="data-analysis.md">📊 Case analysis</a></p>
+<img src="assets/readme-architecture.svg" alt="Cross-category e-commerce marketing workflow diagram" width="100%">
 </div>
 
 <a id="简体中文"></a>
@@ -14,6 +16,10 @@
 ## 概览
 
 本仓库记录跨品类商品数据营销的流程、能力契约、Prompt、产品设计与分析材料。`src/category_config.py` 在分析前校验品类配置是否包含来源、分析维度、规格来源、风险规则和所需输出；它不采集数据、不生成营销素材，也不执行发布。
+
+<p align="center"><img src="assets/feature-radar.png" alt="Documented smart-band case feature-mention radar chart" width="78%"></p>
+
+> 图表来自仓库中的智能手环案例分析，展示文档所记录的功能维度被提及频次；它不是产品规格或性能评级。
 
 ## 仓库内容
 

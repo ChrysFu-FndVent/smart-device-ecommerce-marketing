@@ -10,7 +10,7 @@
 <!-- README-ARCHITECT: visual-shell end -->
 
 <a id="readme-top"></a>
-<div align="right"><a href="#简体中文">简体中文</a> | <a href="#english">English</a></div>
+<div align="right"><a href="#english">English</a> | <a href="#简体中文">简体中文</a></div>
 
 <div align="center">
 <h1>Smart Device Ecommerce Marketing</h1>
@@ -21,6 +21,37 @@
 <p><a href="workflows.md">🧭 Workflow</a> · <a href="skills.md">🧩 Contracts</a> · <a href="prompt-engineering.md">💬 Prompts</a> · <a href="data-analysis.md">📊 Case analysis</a></p>
 <img src="assets/readme-architecture.svg" alt="Cross-category e-commerce marketing workflow diagram" width="100%">
 </div>
+
+<a id="english"></a>
+
+## Overview
+
+This repository contains workflow, capability-contract, prompt, product-design, and analysis material for cross-category e-commerce data marketing. `src/category_config.py` validates that a category configuration contains sources, analysis dimensions, specification sources, risk rules, and required outputs before analysis. It does not collect data, generate marketing assets, or publish content.
+
+## Contents
+
+| Content | Existing file |
+|---|---|
+| Category configuration and six-stage data-marketing flow | [workflows.md](workflows.md) |
+| Collection, analysis, theme, and material Skill contracts | [skills.md](skills.md) |
+| Verifiable analysis, copy, and visual prompts | [prompt-engineering.md](prompt-engineering.md) |
+| Category-marketing architecture and smart-band case material | [product-design.md](product-design.md) · [data-analysis.md](data-analysis.md) |
+| Configuration-validation reference | [src/category_config.py](src/category_config.py) |
+
+## Run the Configuration Validator
+
+```bash
+python3 src/category_config.py --self-test
+python3 src/category_config.py
+```
+
+The validator requires `category`, `business_question`, and `target_channel`, plus non-empty `sources`, `analysis_dimensions`, `spec_source`, `risk_rules`, and `required_output` lists. A successful result still marks an evidence gate and human release review as required.
+
+## Scope
+
+- Trace conclusions, selling points, and visual material back to verified product data and specification sources.
+- The example configuration does not promise a product capability, health effect, or commercial result.
+- Independent systems and human review complete analysis, material generation, and release.
 
 <a id="简体中文"></a>
 
@@ -56,34 +87,3 @@ python3 src/category_config.py
 - 结论、卖点和视觉素材应回溯到已核验的商品数据与规格来源。
 - 示例配置不是对特定商品功能、健康效果或商业结果的承诺。
 - 分析、素材生成和发布由独立系统及人工审核流程完成。
-
-<a id="english"></a>
-
-## Overview
-
-This repository contains workflow, capability-contract, prompt, product-design, and analysis material for cross-category e-commerce data marketing. `src/category_config.py` validates that a category configuration contains sources, analysis dimensions, specification sources, risk rules, and required outputs before analysis. It does not collect data, generate marketing assets, or publish content.
-
-## Contents
-
-| Content | Existing file |
-|---|---|
-| Category configuration and six-stage data-marketing flow | [workflows.md](workflows.md) |
-| Collection, analysis, theme, and material Skill contracts | [skills.md](skills.md) |
-| Verifiable analysis, copy, and visual prompts | [prompt-engineering.md](prompt-engineering.md) |
-| Category-marketing architecture and smart-band case material | [product-design.md](product-design.md) · [data-analysis.md](data-analysis.md) |
-| Configuration-validation reference | [src/category_config.py](src/category_config.py) |
-
-## Run the Configuration Validator
-
-```bash
-python3 src/category_config.py --self-test
-python3 src/category_config.py
-```
-
-The validator requires `category`, `business_question`, and `target_channel`, plus non-empty `sources`, `analysis_dimensions`, `spec_source`, `risk_rules`, and `required_output` lists. A successful result still marks an evidence gate and human release review as required.
-
-## Scope
-
-- Trace conclusions, selling points, and visual material back to verified product data and specification sources.
-- The example configuration does not promise a product capability, health effect, or commercial result.
-- Independent systems and human review complete analysis, material generation, and release.
